@@ -14,10 +14,13 @@ def home():
         Year = int(myDict["Year"])
         pred = [Year,Month]
         res=random_Forest.predict([pred])[0]
-
         # res=random_Forest.predict(["Year","Month"])
         res=round(res,2)
         return render_template('result.html',Month=Month,Year=Year,res=res)
     return render_template('index.html')
 
+@app.route("/visualization")
+def visualization():
+    return render_template('visualizer.html')
 
+app.run()
